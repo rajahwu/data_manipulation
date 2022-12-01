@@ -20,3 +20,11 @@ d3.dsv("|", "/data/animals_piped.txt").then(function(data) {
 d3.json("/data/employess.json").then(function(data) {
     console.log(data[0])
 })
+
+Promise.all([
+    d3.csv("/data/cities.csv"),
+    d3.dsv("|", "/data/animals_piped.txt")
+]).then(function(data) {
+    console.log(data[0][0])
+    console.log(data[1][0])
+})
